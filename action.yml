@@ -1,0 +1,22 @@
+name: npm next version action
+description: A Github action to get the next tagged version label based on the current one, for Rhax.
+inputs:
+  repo: 
+    description: The repo to read from
+    required: true
+  registry:
+    description: The registry to read from
+    default: https://registry.npmjs.org/
+  tag:
+    description: The tag to label the version
+    default: unstable
+  delimiter:
+    description: Delimiter placed between the primary version string and "the rest", e.g. the "-" in x.y.z-alpha.1
+    default: '-'
+outputs:
+  next-version:
+      description: The tag for the next version.
+runs:
+  using: 'node14'
+  main: 'index.js'
+

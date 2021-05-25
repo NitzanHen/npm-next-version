@@ -1,0 +1,13 @@
+{
+  "name": "npm-next-version",
+  "version": "1.0.0",
+  "description": "A Github action to get the next version label based on the current one",
+  "main": "index.js",
+  "repository": "https://github.com/rhaxjs/npm-update-action.git",
+  "author": "Nitzan@agamim <58311807+NitzanHen@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.3.0",
+    "axios": "^0.21.1"
+  }
+}
