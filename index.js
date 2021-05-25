@@ -12,6 +12,10 @@ try {
 
   /** @param {string} version */
   const getNextVersion = (version) => {
+    if(!version) {
+      throw new Error(`Unknown error - failed to fetch latest version with tag ${tag}`)
+    }
+
     const regex = new RegExp(`^(?<primary>\\d+\\.\\d+\\.\\d+)(${delimiter}(?<tag>${tag})\\.(?<n>\\d+))?`, 'i');
     const result = version.match(regex);
     if (!result.groups) {
@@ -23,7 +27,7 @@ try {
 
   axios.get(`${registry}/${repoName}`)
     .then(res => res.data)
-    .then(data => data?.['dist-tags']?.[tag])
+    .then(data => data && data['dist-tags'] && data['dist-tags'][tag])
     .then(getNextVersion)
     .then(nextVersion => core.setOutput('next-version', nextVersion))
 
