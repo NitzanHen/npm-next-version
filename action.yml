@@ -17,6 +17,6 @@ outputs:
   next-version:
       description: The tag for the next version.
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'index.js'
 
